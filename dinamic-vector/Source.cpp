@@ -22,5 +22,4 @@ int main() {
 	//n5 *= 5;
 	n5.print();
 	std::cout << v.norm() << " " << v.dist(v0) << " " << v.dot(v0) << " " << v.dot(n5);
-	Sleep(100000000);
 }
