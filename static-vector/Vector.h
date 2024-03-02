@@ -35,11 +35,11 @@ public:
 		return *this + (-v);
 	}
 
-	Vector operator+=(const Vector & v) {
+	Vector& operator+=(const Vector & v) {
 		for (int i = 0; i < n; i++) this->vect[i] += v.vect[i];
 		return *this;
 	}
-	Vector operator-=(const Vector & v) {
+	Vector& operator-=(const Vector & v) {
 		for (int i = 0; i < n; i++) this->vect[i] -= v.vect[i];
 		return *this;
 	}
@@ -55,11 +55,11 @@ public:
 		return c;
 	}
 
-	Vector operator*=(double a) {
+	Vector& operator*=(double a) {
 		for (int i = 0; i < n; i++) this->vect[i] *= a;
 		return *this;
 	}
-	Vector operator/=(double a) {
+	Vector& operator/=(double a) {
 		for (int i = 0; i < n; i++) this->vect[i] /= a;
 		return *this;
 	}
