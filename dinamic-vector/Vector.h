@@ -31,7 +31,7 @@ public:
 	}
 
 	//operator =
-	Vector operator=(const Vector& v) {
+	Vector& operator=(const Vector& v) {
 		if (this == &v) return *this;
 		this->n = v.n;
 		delete[] this->vect;
@@ -52,7 +52,7 @@ public:
 		return c;
 	}
 
-	Vector operator+=(const Vector& v) {
+	Vector& operator+=(const Vector& v) {
 		if(this->n != v.n) throw "different dim";
 		for (int i = 0; i < this->n; i++) this->vect[i] += v.vect[i];
 		return *this;
@@ -63,7 +63,7 @@ public:
 		return c;
 	}
 	
-	Vector operator-=(const Vector& v) {
+	Vector& operator-=(const Vector& v) {
 		if (this->n != v.n) throw "different dim";
 		for (int i = 0; i < this->n; i++) this->vect[i] -= v.vect[i];
 		return *this;
@@ -74,7 +74,7 @@ public:
 		return c;
 	}
 
-	Vector operator*=(double a) {
+	Vector& operator*=(double a) {
 		for (int i = 0; i < n; i++) this->vect[i] *= a;
 		return *this;
 	}
@@ -84,7 +84,7 @@ public:
 		return c;
 	}
 
-	Vector operator/=(double a) {
+	Vector& operator/=(double a) {
 		*this = (*this) *(1/ a);
 		return *this;
 	}
