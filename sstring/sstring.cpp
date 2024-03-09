@@ -166,6 +166,15 @@ int sstring::find(const sstring& s) {
 	int i = 0;
 	for (; i < this->n && count < s.size(); i++) {
 		if (this->str[i] == s.str[count]) count++;
+		else {
+			count = 0;
+			if (next != -1) {
+				i = next;
+				next = -1;
+				count++;
+			}
+		}
+		if (this->str[i] == s.str[0] && count != 1 && next == -1) next = i;
 	}
 	if (count == s.size()) return (i - count + 1);
 	return -1;
