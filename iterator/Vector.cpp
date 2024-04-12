@@ -75,7 +75,7 @@ Vector& Vector::push_back(double next) {
 }
 
 Vector& Vector::pop_back() {
-	this->n--;//ïîäóìàòü íàä óäàëåíèåì ïàìÿòè
+	this->n--;//Ã¯Ã®Ã¤Ã³Ã¬Ã Ã²Ã¼ Ã­Ã Ã¤ Ã³Ã¤Ã Ã«Ã¥Ã­Ã¨Ã¥Ã¬ Ã¯Ã Ã¬Ã¿Ã²Ã¨
 	return *this;
 }
 
@@ -164,7 +164,8 @@ Vector::iterator& Vector::iterator::operator++() {
 	return *this;
 }
 Vector::iterator Vector::iterator::operator++(int) {
-	iterator i = ++(*this);
+	iterator i = *this;
+	++(*this);
 	return i;
 }
 
@@ -195,7 +196,8 @@ Vector::iterator& Vector::iterator::operator--() {
 	return *this;
 }
 Vector::iterator Vector::iterator::operator--(int) {
-	iterator i = --(*this);
+	iterator i = *this;
+	--(*this);
 	return i;
 }
 
