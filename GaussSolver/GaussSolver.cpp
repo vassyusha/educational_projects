@@ -54,8 +54,8 @@ void GaussSolver::diag(Matrix& A) {
 	for (int i = 0, j = 0; i < n; i++) {//i - èíäåêñ ïî ñòðîêàì, òî åñòü â êàêîé ñòðîêå ñåé÷àñ âåäóùèé ýëåìåíò
 		for (; j < m-1; j++) {
 			int g = i + 1;
-			while (A(i, j) == 0 && g < n) {//j - ñîîòâåòñòâåííî âåäóùèé ýëåìåíò
-				swap(A[i], A[g]);
+			while (g < n) {//j - ñîîòâåòñòâåííî âåäóùèé ýëåìåíò
+				if(abs(A(i,j)) < abs(A(g,j))) swap(A[i], A[g]);
 				g++;
 			}
 			if (A(i, j) != 0) {
