@@ -31,7 +31,7 @@ std::vector<bool> GaussSolver::basis(const Matrix& ext, int& r) {
 	for (; i < ext.getn();) {
 		for (; j < ext.getm() - 1; j++) {
 			while (ext(i, j) != 1 && j < ext.getm() - 1) j++;
-			if (ext(i, j) == 1) {
+			if (ext(i, j) == 1 && j != ext.getm()-1) {
 				bas[j] = true;
 				r++;
 				j++;
