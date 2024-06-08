@@ -1,5 +1,5 @@
 #include "GaussSolver.h"
-
+#define EPS 10e-11
 
 std::vector<Vector> GaussSolver::solve(const Matrix& A, const Vector& b) {
 
@@ -64,7 +64,10 @@ void GaussSolver::diag(Matrix& A) {
 				for (int k = 0; k < n; k++) {
 					if (k == i) continue;
 					el = A(k, j);
-					for (int p = 0; p < m; p++) A(k, p) -= A(i, p) * el;
+					for (int p = 0; p < m; p++){
+						A(k, p) -= A(i, p) * el;
+						if (abs(A(k, p)) < EPS) A(k, p) = 0;
+					}
 				}j++;
 				break;
 			}
